@@ -37,12 +37,12 @@ background-image: linear-gradient(to top right, #000000, #3c3233, #79635f, #b999
     width:32px;
     background-repeat: no-repeat;
     display:inline-block;
-    background-image: url('/home/jonathan/Desktop/Pacman/images/pacman.png');
+    background-image: url('../images/pacman.png');
 }
 .wall{
     height:32px;
     width:32px;
-    background-image:url('/home/jonathan/Desktop/Pacman/images/wall1.png');
+    background-image:url('../images/wall1.png');
     display:inline-block;
 }
 .square{
@@ -63,7 +63,7 @@ background-image: linear-gradient(to top right, #000000, #3c3233, #79635f, #b999
 .ghost{
     height:32px;
     width: 32px;
-    background-image: url('/home/jonathan/Desktop/Pacman/images/ghost1.png');
+    background-image: url('../images/ghost1.png');
     display:inline-block;
 }
 
@@ -74,5 +74,5 @@ background-image: linear-gradient(to top right, #000000, #3c3233, #79635f, #b999
 }
 
 .target{
-    
+
 }
