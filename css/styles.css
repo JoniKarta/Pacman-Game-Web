@@ -2,15 +2,25 @@
 body{
 margin:0;
 }
+
 h1{
+    font-family: 'Lobster', cursive;
     margin: 0;
     color:white;
 }
-.header{
+
+.logo{
     height:100px;
     width:auto;
 }
-#pacman-header{
+
+.header-logo{
+    font-family: 'Lobster', cursive;
+    display: block;
+    font-size: 5rem;
+}
+
+#pacman-logo-header{
     /* background-color: black; */
     text-align: center;
     background-color: black;
@@ -24,19 +34,24 @@ h1{
 #pacman-info{
     padding:15px;
     text-align: center;
-background-image: -webkit-linear-gradient(bottom left, #000000, #3c3233, #79635f, #b9998d, #f9d5bb);
-background-image: -o-linear-gradient(bottom left, #000000, #3c3233, #79635f, #b9998d, #f9d5bb);
-background-image: linear-gradient(to top right, #000000, #3c3233, #79635f, #b9998d, #f9d5bb);
+    background-image: -webkit-linear-gradient(bottom left, #000000, #3c3233, #79635f, #b9998d, #f9d5bb);
+    background-image: -o-linear-gradient(bottom left, #000000, #3c3233, #79635f, #b9998d, #f9d5bb);
+    background-image: linear-gradient(to top right, #000000, #3c3233, #79635f, #b9998d, #f9d5bb);
 }
-#id{
+
+#score{
+    font-size:2rem;
+    background-color:#1a3e59;
+    text-align: center;
     font-family: 'Lobster', cursive;
 
 }
+
+
+/* The area is classes for the object in the gameplay */
 .pacman{
     height:32px;
     width:32px;
-    z-index: 999;
-
     background-repeat: no-repeat;
     display:inline-block;
     background-image: url(pacman.png);
@@ -44,14 +59,12 @@ background-image: linear-gradient(to top right, #000000, #3c3233, #79635f, #b999
 .wall{
     height:32px;
     width:32px;
-
     background-image:url(../images/wall1.png);
     display:inline-block;
 }
 .square{
     height:32px;
     width:32px;
-    z-index: 99;
     display:inline-block;
 }
 .coin{
@@ -70,12 +83,6 @@ background-image: linear-gradient(to top right, #000000, #3c3233, #79635f, #b999
     display:inline-block;
 }
 
-.header-logo{
-    font-family: 'Lobster', cursive;
-    display: block;
-    font-size: 5rem;
-}
-
 .target{
-
+    /* detect the maze coordinates */
 }
