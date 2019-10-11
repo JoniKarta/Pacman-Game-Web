@@ -8,6 +8,7 @@ const world= {
     PACMAN : 4,
 }
 const direction={
+    SPACE:32,
     LEFT:37,
     UP: 38,
     RIGHT:39,
@@ -31,7 +32,7 @@ var mapWorld = [
     [2,2,2,0,1,0,1,0,0,2,2,2,2,2,2,2,2,2,0,0,1,0,1,0,2,2,2],
     [0,0,0,0,1,0,1,0,0,2,0,0,0,2,0,0,0,2,0,0,1,0,1,0,0,0,0],
 
-    [2,2,2,2,1,1,1,0,0,2,0,0,3,3,3,0,0,2,0,0,1,1,1,2,2,2,2],
+    [0,2,2,2,1,1,1,0,0,2,0,0,3,3,3,0,0,2,0,0,1,1,1,2,2,2,0],
     [0,0,0,0,1,0,0,0,0,2,0,0,0,0,0,0,0,2,0,0,1,0,1,0,0,0,0],
     [0,1,1,1,1,1,0,0,0,2,2,2,2,2,2,2,2,2,0,0,1,0,1,1,1,1,0],
     [0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,1,0],
@@ -132,16 +133,25 @@ var mapWorld = [
                 addClass('pacman');
                 }
                 else{ // it's a coin
+                mapWorld[pacman.row][pacman.col] = world.EMPTY_SQUARE;
                 removeClass('pacman');
                 pacman.col = target_col;
                 pacman.row = target_row;
                 changeCoinVisisbility();
                 addClass('pacman');
                 }
-                mapWorld[pacman.row][pacman.col] = world.PACMAN;
+            mapWorld[pacman.row][pacman.col] = world.PACMAN;
+
         }
 
+
     }
+    window.addEventListener("keydown", function(e) {
+    // space and arrow keys
+    if([direction.SPACE, direction.UP, direction.DOWN, direction.LEFT, direction.RIGHT].indexOf(e.keyCode) > -1) {
+        e.preventDefault();
+    }
+}, false);
     // document.onkeydown = function(e){
     //     var target;
     //     if(e.keyCode == direction.RIGHT && mapWorld[pacman.row][pacman.col + 1] != world.BRICK){
