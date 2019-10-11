@@ -35,20 +35,23 @@ background-image: linear-gradient(to top right, #000000, #3c3233, #79635f, #b999
 .pacman{
     height:32px;
     width:32px;
+    z-index: 999;
+
     background-repeat: no-repeat;
     display:inline-block;
-    background-image: url('../images/pacman.png');
+    background-image: url(pacman.png);
 }
 .wall{
     height:32px;
     width:32px;
-    background-image:url('../images/wall1.png');
+
+    background-image:url(../images/wall1.png);
     display:inline-block;
 }
 .square{
     height:32px;
     width:32px;
-    /* background-image:url('/home/jonathan/Desktop/Pacman/images/square-shape-shadow.png'); */
+    z-index: 99;
     display:inline-block;
 }
 .coin{
@@ -63,7 +66,7 @@ background-image: linear-gradient(to top right, #000000, #3c3233, #79635f, #b999
 .ghost{
     height:32px;
     width: 32px;
-    background-image: url('../images/ghost1.png');
+    background-image: url(../images/ghost1.png);
     display:inline-block;
 }
 
