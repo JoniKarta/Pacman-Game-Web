@@ -1,36 +1,41 @@
 
+/* ---------------- GENERAL ELEMENT AREA ------------------- */
+
 body{
-margin:0;
+    margin:0;
 }
 
 h1{
     font-family: 'Lobster', cursive;
     margin: 0;
     color:white;
+    display:inline-block;
 }
 
-.logo{
+/* ---------------- ID AREA ------------------- */
+
+#logo{
     height:100px;
     width:auto;
 }
 
-.header-logo{
+#header-logo{
     font-family: 'Lobster', cursive;
     display: block;
     font-size: 5rem;
 }
 
 #pacman-logo-header{
-    /* background-color: black; */
     text-align: center;
     background-color: black;
 }
+
 #pacman-world{
     background-color:#1a3e59;
     text-align: center;
     font-family: 'Lobster', cursive;
-
 }
+
 #pacman-info{
     padding:15px;
     text-align: center;
@@ -44,29 +49,32 @@ h1{
     background-color:#1a3e59;
     text-align: center;
     font-family: 'Lobster', cursive;
-
 }
 
+/* ---------------- CLASSES AREA ------------------- */
 
-/* The area is classes for the object in the gameplay */
-.pacman{
+.pacman-life{
     height:32px;
     width:32px;
-    background-repeat: no-repeat;
+    margin-left:10px;
+    background-image:url(pacman.png);
     display:inline-block;
-    background-image: url(pacman.png);
 }
+
 .wall{
     height:32px;
     width:32px;
     background-image:url(../images/wall1.png);
     display:inline-block;
 }
+
 .square{
     height:32px;
     width:32px;
     display:inline-block;
+    position:relative;
 }
+
 .coin{
     height: 10px;
     width: 10px;
@@ -74,8 +82,9 @@ h1{
     border-radius: 50%;
     left: 35%;
     top: 35%;
-    position: relative;
+    position: absolute;
 }
+
 .ghost{
     height:32px;
     width: 32px;
@@ -83,6 +92,129 @@ h1{
     display:inline-block;
 }
 
-.target{
-    /* detect the maze coordinates */
+
+/* ================== PACMAN RIGHT  ================================= */
+
+.pacman-right {
+    position: absolute;
+    z-index: 99;
+}
+
+.pacman-right::before, .pacman-right::after {
+    content: "";
+    display: inline-block;
+    height: 0;
+    width: 0;
+    position: absolute;
+    border: solid 16px yellow;
+    border-radius: 50%;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    animation: mouthTop 0.7s ease infinite;
+}
+
+.pacman-right::after {
+    border-color: yellow;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    animation: mouthBottom 0.7s ease infinite;
+}
+
+/* ================== PACMAN LEFT  ================================= */
+
+
+.pacman-left {
+    position: absolute;
+    z-index: 99;
+}
+
+.pacman-left::before, .pacman-left::after {
+    content: "";
+    height: 0;
+    width: 0;
+    position: absolute;
+    display: inline-block;
+    border: solid 16px yellow;
+    border-radius: 50%;
+    border-left-color: transparent;
+    border-top-color: transparent;
+    animation: mouthTop 0.7s ease infinite;
+}
+
+.pacman-left::after {
+    border-color: yellow;
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    animation: mouthBottom 0.7s ease infinite;
+}
+
+/* ================== PACMAN UP  ================================= */
+
+.pacman-up {
+    position: absolute;
+    z-index: 99;
+}
+
+.pacman-up::before, .pacman-up::after {
+    content: "";
+    height: 0;
+    display: inline-block;
+    width: 0;
+    position: absolute;
+    border: solid 16px yellow;
+    border-radius: 50%;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    animation: mouthTop 0.7s ease infinite;
+}
+
+.pacman-up::after {
+
+    border-color: yellow;
+    border-left-color: transparent;
+    border-top-color: transparent;
+    animation: mouthBottom 0.7s ease infinite;
+}
+
+
+/* ================== PACMAN DOWN  ================================= */
+
+.pacman-down {
+    position: absolute;
+    z-index: 99;
+}
+
+.pacman-down::before, .pacman-down::after {
+    content: "";
+    display: inline-block;
+    height: 0;
+    width: 0;
+    position: absolute;
+    border: solid 16px yellow;
+    border-radius: 50%;
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    animation: mouthTop 0.7s ease infinite;
+}
+
+.pacman-down::after {
+
+    border-color: yellow;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    animation: mouthBottom 0.7s ease infinite;
+}
+
+/* ================== PACMAN MOVE CSS ================================= */
+
+@keyframes mouthTop {
+    50% {
+        transform: rotate(44deg);
+    }
+}
+
+@keyframes mouthBottom {
+    50% {
+        transform: rotate(-44deg);
+    }
 }
