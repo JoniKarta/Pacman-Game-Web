@@ -85,12 +85,12 @@ h1{
     position: absolute;
 }
 
-.ghost{
+/* .ghost{
     height:32px;
     width: 32px;
     background-image: url(../images/ghost1.png);
     display:inline-block;
-}
+} */
 
 
 /* ================== PACMAN RIGHT  ================================= */
@@ -102,7 +102,6 @@ h1{
 
 .pacman-right::before, .pacman-right::after {
     content: "";
-    display: inline-block;
     height: 0;
     width: 0;
     position: absolute;
@@ -133,7 +132,6 @@ h1{
     height: 0;
     width: 0;
     position: absolute;
-    display: inline-block;
     border: solid 16px yellow;
     border-radius: 50%;
     border-left-color: transparent;
@@ -158,7 +156,6 @@ h1{
 .pacman-up::before, .pacman-up::after {
     content: "";
     height: 0;
-    display: inline-block;
     width: 0;
     position: absolute;
     border: solid 16px yellow;
@@ -186,7 +183,6 @@ h1{
 
 .pacman-down::before, .pacman-down::after {
     content: "";
-    display: inline-block;
     height: 0;
     width: 0;
     position: absolute;
@@ -216,5 +212,65 @@ h1{
 @keyframes mouthBottom {
     50% {
         transform: rotate(-44deg);
+    }
+}
+
+
+
+/* ================== GHOST  ================================= */
+
+
+.ghost {
+    position: absolute;
+    z-index: 99;
+    background:red;
+    height:32px;
+    width:32px;
+    border-top-left-radius:50%;
+    border-top-right-radius:50%;
+    animation: blinky 0.9s linear infinite;
+}
+
+.ghost::before, .ghost::after {
+    content:"";
+    position:absolute;
+    z-index: 99;
+    background:white;
+    height:13px;
+    width:10px;
+    border-radius: 100% / 100% ;
+    top:7px;
+    left:4px;
+}
+/* :#1a3e59 */
+.ghost::after {
+    margin-left: 13px;
+}
+
+.eyes{
+    position: absolute;
+    z-index: 999;
+}
+
+.eyes::before, .eyes::after {
+    content:"";
+    z-index: 999;
+    position:absolute;
+    background:blue;
+    border-radius: 50%;
+    height:5px;
+    width:5px;
+    top:12px;
+    left:5px;
+}
+/* :#1a3e59 */
+.eyes::after {
+    z-index: 999;
+    margin-left: 13px;
+}
+
+@keyframes blinky {
+    50% {
+        background:#333;
     }
 }

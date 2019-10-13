@@ -1,12 +1,5 @@
 
 
-const world = {
-    BRICK:  0,
-    COIN :  1,
-    EMPTY : 2,
-    GHOST : 3,
-    PACMAN :4,
-}
 const direction = {
     SPACE:  32,
     LEFT:   37,
@@ -23,6 +16,15 @@ var pacman = {
 var score = 0;
 var keyCode;
 var audio;
+var numGhosts = 4;
+
+const world = {
+    BRICK:  0,
+    COIN :  1,
+    EMPTY : 2,
+    GHOST : 3,
+    PACMAN :4,
+}
 
 var mapWorld = [
     [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -36,7 +38,7 @@ var mapWorld = [
     [2,2,2,0,1,0,1,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,1,0,2,2,2],
     [2,2,2,0,1,0,1,0,0,2,2,2,2,2,2,2,2,2,0,0,1,0,1,0,2,2,2],
     [0,0,0,0,1,0,1,0,0,2,0,0,0,2,0,0,0,2,0,0,1,0,1,0,0,0,0],
-    [0,2,2,2,1,1,1,0,0,2,0,0,3,3,3,0,0,2,0,0,1,1,1,2,2,2,0],
+    [0,2,2,2,1,1,1,0,0,2,0,3,3,3,3,0,0,2,0,0,1,1,1,2,2,2,0],
     [0,0,0,0,1,0,0,0,0,2,0,0,0,0,0,0,0,2,0,0,1,0,1,0,0,0,0],
     [0,1,1,1,1,1,0,0,0,2,2,2,2,2,2,2,2,2,0,0,1,0,1,1,1,1,0],
     [0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,1,0],
@@ -73,7 +75,7 @@ var mapWorld = [
                     document.getElementById('pacman-world').innerHTML += "<div class='square'></div>";
                     break;
                     case world.GHOST:
-                    document.getElementById('pacman-world').innerHTML +="<div class='ghost square'></div>";
+                    document.getElementById('pacman-world').innerHTML +="<div class='square'><div class='ghost'><div class='eyes'></div></div></div>";
                     break;
                     case world.PACMAN:
                     document.getElementById('pacman-world').innerHTML += "<div class='square'><div class='pacman-right'></div></div>";
@@ -85,9 +87,17 @@ var mapWorld = [
             }
         }
         audio = Audio = new Audio("audio/chomp.wav");
+        createGhostsIdentity();
         createInfoGamePlay();
     }
 
+
+    function createGhostsIdentity(){
+        var colorGhosts = ["#FF0000","#FFB8FF","#00FFFF","#FFB852"];
+        for(var i = 0; i < numGhosts; i = i + 1){
+            document.querySelectorAll(".ghost")[i].style.backgroundColor = colorGhosts[i];
+        }
+    }
     function updateScore(){
         score = score + 10;
         document.getElementById('score').innerHTML = "Your Score: " + score ;
